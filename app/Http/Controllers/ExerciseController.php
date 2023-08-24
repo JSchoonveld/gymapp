@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ExerciseResource;
 use App\Models\Exercise;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ExerciseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        return Exercise::all();
+        $exercises = Exercise::all();
+        return ExerciseResource::collection($exercises);
     }
 
     /**
