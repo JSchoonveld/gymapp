@@ -15,48 +15,72 @@ class MuscleSeeder extends Seeder
     {
         Muscle::factory()
             ->create([
-                'name' => 'Biceps',
+                'name' => 'biceps',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Triceps',
+                'name' => 'triceps',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Chest',
+                'name' => 'chest',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Upper back',
+                'name' => 'upper back',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Lower back',
+                'name' => 'lower back',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Neck',
+                'name' => 'neck',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Quadriceps',
+                'name' => 'quadriceps',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Hamstrings',
+                'name' => 'hamstrings',
             ]);
 
         Muscle::factory()
             ->create([
-                'name' => 'Calves',
+                'name' => 'calves',
             ]);
 
+        Muscle::factory()
+            ->create([
+                'name' => 'abs',
+            ]);
+
+        Muscle::factory()
+            ->create([
+                'name' => 'glutes',
+            ]);
+
+        Muscle::factory()
+            ->create([
+                'name' => 'forearms',
+            ]);
+
+        Muscle::factory()
+            ->create([
+                'name' => 'shoulders',
+            ]);
+
+        Muscle::factory()
+            ->create([
+                'name' => 'forearms',
+            ]);
     }
 }
