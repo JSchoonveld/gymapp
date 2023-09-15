@@ -1,8 +1,14 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+
+Route::post('/user/login', [UserController::class, 'login']);
+Route::post('/user/register', [UserController::class, 'register']);
 
 Route::prefix('exercise')->group(function () {
     Route::get('/', [ExerciseController::class, 'index']);

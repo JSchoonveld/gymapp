@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('workout_day_exercises', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('workout_day_id');
-            $table->foreign('workout_day_id')->references('id')->on('workout_days');
+            $table->foreign('workout_day_id')->references('id')->on('workout_days')->onDelete('cascade');
             $table->unsignedBigInteger('exercise_id');
-            $table->foreign('exercise_id')->references('id')->on('exercises');
+            $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
             $table->integer('sets');
             $table->integer('reps');
             $table->integer('weight');
