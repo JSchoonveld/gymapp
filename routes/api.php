@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ExerciseController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WorkoutPlanController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,15 @@ use Illuminate\Support\Str;
 Route::post('/user/login', [UserController::class, 'login']);
 Route::post('/user/register', [UserController::class, 'register']);
 
-Route::prefix('exercise')->group(function () {
+Route::middleware('auth:sanctum')->prefix('workout_plan')->group(function () {
+    Route::get('/', [WorkoutPlanController::class, 'index']);
+    Route::get('/{workoutPlan}', [WorkoutPlanController::class, 'show']);
+    Route::post('/', [WorkoutPlanController::class, 'store']);
+    Route::put('/{workoutPlan}', [WorkoutPlanController::class, 'update']);
+    Route::delete('/{workoutPlan}', [WorkoutPlanController::class, 'destroy']);
+});
+
+Route::middleware('auth:sanctum')->prefix('exercise')->group(function () {
     Route::get('/', [ExerciseController::class, 'index']);
     Route::get('/{exercise}', [ExerciseController::class, 'show']);
     Route::post('/', [ExerciseController::class, 'store']);

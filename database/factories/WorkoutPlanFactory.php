@@ -14,6 +14,7 @@ class WorkoutPlanFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
+            'name' => $this->faker->text(30),
             'description' => $this->faker->text(255),
         ];
     }
