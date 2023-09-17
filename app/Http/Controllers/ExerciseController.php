@@ -12,8 +12,9 @@ class ExerciseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): AnonymousResourceCollection
+    public function index(Request $request): AnonymousResourceCollection
     {
+        Logger($request->user());
         $exercises = Exercise::all();
         return ExerciseResource::collection($exercises);
     }

@@ -11,7 +11,7 @@ class WorkoutPlan extends Model
 {
     use HasFactory;
 
-    public function user(): BelongsTo
+    public function creator(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

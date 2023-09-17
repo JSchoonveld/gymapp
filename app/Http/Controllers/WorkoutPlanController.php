@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\WorkoutPlanResource;
 use App\Models\WorkoutPlan;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class WorkoutPlanController extends Controller
      */
     public function index()
     {
-        //
+        $exercises = WorkoutPlan::all();
+        return WorkoutPlanResource::collection($exercises);
     }
 
     /**
