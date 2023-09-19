@@ -14,7 +14,7 @@ class WorkoutPlanSeeder extends Seeder
             ->count(10)
             ->state(function (array $attributes) {
                 return [
-                    'user_id' => User::all()->random()->id,
+                    'user_id' => 1,
                 ];
             })
             ->create();
