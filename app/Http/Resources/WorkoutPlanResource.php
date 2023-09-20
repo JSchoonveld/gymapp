@@ -20,6 +20,8 @@ class WorkoutPlanResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'routine_category' => $this->routine_category,
+            'difficulty' => $this->difficulty,
+            'length' => $this->length,
             'image' => $this->image,
         ];
     }

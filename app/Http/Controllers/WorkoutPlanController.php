@@ -13,7 +13,11 @@ class WorkoutPlanController extends Controller
      */
     public function index()
     {
-        $exercises = WorkoutPlan::all();
+        $exercises = WorkoutPlan::query()
+            ->onlyCategory(request()->get('routine_category'))
+            ->orderBy('name')
+            ->get();
+
         return WorkoutPlanResource::collection($exercises);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -19,5 +20,18 @@ class WorkoutPlan extends Model
     public function workoutDays(): HasMany
     {
         return $this->hasMany(WorkoutDay::class);
+    }
+
+    public function scopeOnlyCategory(Builder $query, ?string $value): Builder
+    {
+        if (!$value) {
+            return $query;
+        }
+
+        if ($value === 'All') {
+            return $query;
+        }
+
+        return $query->where('routine_category', $value);
     }
 }
