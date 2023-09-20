@@ -11,7 +11,7 @@ class WorkoutPlanSeeder extends Seeder
     public function run(): void
     {
         WorkoutPlan::factory()
-            ->count(10)
+            ->count(15)
             ->state(function (array $attributes) {
                 return [
                     'user_id' => 1,
