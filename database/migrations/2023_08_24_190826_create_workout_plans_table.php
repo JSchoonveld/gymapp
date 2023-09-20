@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('description', 255);
             $table->string('routine_category', 255);
+            $table->string('difficulty', 255);
+            $table->integer('length');
             $table->string('image', 255);
             $table->timestamps();
         });
