@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Http\Resources\WorkoutPlanResource;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\WorkoutPlanResource;
 use App\Models\WorkoutPlan;
 use Illuminate\Http\Request;
 
