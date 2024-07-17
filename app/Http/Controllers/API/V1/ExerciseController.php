@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Http\Resources\ExerciseResource;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ExerciseResource;
 use App\Models\Exercise;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -14,8 +15,8 @@ class ExerciseController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        Logger($request->user());
         $exercises = Exercise::all();
+
         return ExerciseResource::collection($exercises);
     }
 

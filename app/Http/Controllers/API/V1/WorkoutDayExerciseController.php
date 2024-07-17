@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\V1;
 
-use App\Models\WorkoutDay;
+use App\Http\Controllers\Controller;
+use App\Models\WorkoutDayExercise;
 use Illuminate\Http\Request;
 
-class WorkoutDayController extends Controller
+class WorkoutDayExerciseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,7 @@ class WorkoutDayController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(WorkoutDay $workoutDay)
+    public function show(WorkoutDayExercise $workoutDayExercise)
     {
         //
     }
@@ -34,7 +35,7 @@ class WorkoutDayController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, WorkoutDay $workoutDay)
+    public function update(Request $request, WorkoutDayExercise $workoutDayExercise)
     {
         //
     }
@@ -42,7 +43,7 @@ class WorkoutDayController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(WorkoutDay $workoutDay)
+    public function destroy(WorkoutDayExercise $workoutDayExercise)
     {
         //
     }

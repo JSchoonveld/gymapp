@@ -1,15 +1,9 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\ExerciseController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WorkoutPlanController;
-use App\Models\User;
+use App\Http\Controllers\API\V1\ExerciseController;
+use App\Http\Controllers\Auth\UserController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,25 +17,14 @@ use Illuminate\Support\Str;
 */
 
 
-Route::post('/user/login', [UserController::class, 'login']);
-Route::post('/user/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
+Route::post('/register', [UserController::class, 'register']);
 
-Route::middleware('auth:sanctum')->prefix('workout_plan')->group(function () {
-    Route::get('/', [WorkoutPlanController::class, 'index']);
-    Route::get('/{workoutPlan}', [WorkoutPlanController::class, 'show']);
-    Route::post('/', [WorkoutPlanController::class, 'store']);
-    Route::put('/{workoutPlan}', [WorkoutPlanController::class, 'update']);
-    Route::delete('/{workoutPlan}', [WorkoutPlanController::class, 'destroy']);
-});
-
-Route::middleware('auth:sanctum')->prefix('exercise')->group(function () {
-    Route::get('/', [ExerciseController::class, 'index']);
-    Route::get('/{exercise}', [ExerciseController::class, 'show']);
-    Route::post('/', [ExerciseController::class, 'store']);
-    Route::put('/{exercise}', [ExerciseController::class, 'update']);
-    Route::delete('/{exercise}', [ExerciseController::class, 'destroy']);
-});
+Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logout']);
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/test', [ExerciseController::class, 'index']);
